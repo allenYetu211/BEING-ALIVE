@@ -6,9 +6,9 @@ import { Module, Global, DynamicModule } from '@nestjs/common';
 import * as mongoose from 'mongoose';
 import { getModelForClass } from '@typegoose/typegoose';
 
-import { DB_CONNECTION_TOKEN } from '@BA/config/global'
-import { DatabaseConnectionOptions, DatabaseClass } from './database.interface'
-import { getModelToken } from './database.transform'
+import { DB_CONNECTION_TOKEN } from '@BA/config/global';
+import { DatabaseConnectionOptions, DatabaseClass } from './database.interface';
+import { getModelToken } from './database.transform';
 
 /**
  * 创建动态模块
@@ -19,13 +19,20 @@ import { getModelToken } from './database.transform'
 @Global()
 @Module({})
 export class DatabaseModule {
-  static forRoot(uri: string, options: DatabaseConnectionOptions = {}): DynamicModule {
+  static forRoot(
+    uri: string,
+    options: DatabaseConnectionOptions = {},
+  ): DynamicModule {
     const connectionProvider = {
       provide: DB_CONNECTION_TOKEN,
       useFactory: async () => {
-        const mc = mongoose.connection
-        mc.on('connecting', () => { console.info('[MongoDB]', 'connecting...') })
-        mc.on('open', () => { console.info('[MongoDB]', 'readied!') })
+        const mc = mongoose.connection;
+        mc.on('connecting', () => {
+          console.info('[MongoDB]', 'connecting...');
+        });
+        mc.on('open', () => {
+          console.info('[MongoDB]', 'readied!');
+        });
         mc.on('connected', (error) => {
           if (error) {
             console.log('[MongoDB] connecting rejected! ' + error);
@@ -35,10 +42,9 @@ export class DatabaseModule {
         });
 
         // @ts-ignore  , 暂时无法确认此问题原因
-        return await mongoose.connect(uri, { ...options })
-
-      }
-    }
+        return await mongoose.connect(uri, { ...options });
+      },
+    };
 
     return {
       module: DatabaseModule,

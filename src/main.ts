@@ -9,6 +9,6 @@ import { PORT } from '@BA/config/global';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(PORT);
-  console.log(`open: http://localhost:${PORT}`)
+  console.log(`open: http://localhost:${PORT}`);
 }
 bootstrap();

@@ -17,7 +17,7 @@ services:
     command: [--auth]
     restart: always
     volumes:
-      -  ./db:/data/db
+      - ./db:/data/db
     ports:
       - 27017:27017
     healthcheck:

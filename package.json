@@ -23,6 +23,12 @@
     "prettier": "prettier",
     "commitlint": "commitlint"
   },
+  "lint-staged": {
+    "src/**/*.{js,json,ts}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
