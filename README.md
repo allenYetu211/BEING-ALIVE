@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-08-29 23:24:53
+ * @LastEditTime: 2022-08-30 23:24:06
 -->
 
 # BEING ALIVE
@@ -30,6 +30,5 @@
 
 # 功能
 
-### 2022-08-29
-
-- [ ] 基于 docker 环境搭建，集成 mongodb、nginx。
+### 2022-08-30
+- [x] 基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](https://github.com/allenYetu211/BEING-ALIVE/blob/main/record/nginx-mongodb-docker.config.md)
