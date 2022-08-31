@@ -1,4 +1,4 @@
-import { Controller, Post, Put } from '@nestjs/common';
+import { Controller, Get, Post, Put } from '@nestjs/common';
 
 import { loggers } from '@BA/utils/logger';
 import { AuthService } from './auth.service';
@@ -23,5 +23,13 @@ export class AuthController {
   @Put('create_user')
   public async CreateUser() {
     await this.authService.CreateUser();
+  }
+
+  @Get('us')
+  public async Testus() {
+    throw {
+      error: 21212,
+      code: 21212
+    };
   }
 }

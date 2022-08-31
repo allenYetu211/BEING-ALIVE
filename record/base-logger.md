@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-31 22:30:58
- * @LastEditTime: 2022-08-31 22:38:29
+ * @LastEditTime: 2022-08-31 23:57:10
 -->
 # 日志模块
 
@@ -67,6 +67,7 @@ class CreateLoggers {
 
       const opt = {
         level: LoggerLevel[method],
+        // 允许自定义label，便于后续检索
         label: isLabel ? first.label : 'LOG',
         message: this.renderMessage(message).join(' '),
       }

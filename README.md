@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-08-31 22:43:18
+ * @LastEditTime: 2022-08-31 23:58:27
 -->
 
 # BEING ALIVE
@@ -36,6 +36,7 @@
 
 ### 2022-08-31
 - [x] 处理日志，持久化存储。 [说明](./record/base-logger.md)
+- [x] 统一异常返回数据结构。 [说明](./record/base-unified-response.md)
 
 
 ### TODO
