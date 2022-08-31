@@ -3,6 +3,7 @@ import { HttpAdapterHost } from '@nestjs/core';
 import * as _ from 'lodash';
 
 import { loggers } from '@BA/utils/logger';
+import { ResponseState } from '@BA/interface/rest.interface';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -28,7 +29,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
       statusCode: httpStatus,
       timestamp: new Date().toISOString(),
       path: httpAdapter.getRequestUrl(ctx.getRequest()),
-      message
+      message,
+      status: ResponseState.Error
     };
 
     const address = headers['x-real-ip'] || headers['x-forwarded-for'] || '';

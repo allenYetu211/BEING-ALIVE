@@ -1,14 +1,20 @@
 <!--
  * @Date: 2022-08-31 23:48:27
- * @LastEditTime: 2022-08-31 23:56:07
+ * @LastEditTime: 2022-09-01 01:19:59
 -->
-# 异常捕获统一返回格式
-在服务端抛出异常时，需要进行统一的错误处理。
-基于nestjs中提供的 `ExceptionFilter` 进行扩展， `ExceptionFilter` 是基于 `HttpException` 进行封装的内置类。
+# 统一返回格式
+- 统一数据结构，方便前端在拦截器中统一处理异常
 
+### 异常数据结构处理
+基于nestjs中的`异常过滤器`提供的 `ExceptionFilter` 进行扩展， `ExceptionFilter` 是基于 `HttpException` 进行封装的内置类。
 
 ```typescript
 // file: ~/src/filter/http-exception.filter.ts
+export enum ResponseState {
+	Success = 'success',
+	Error = 'error',
+}
+---
 
 import {
   ExceptionFilter,
@@ -21,6 +27,7 @@ import { HttpAdapterHost } from '@nestjs/core';
 import * as _ from 'lodash'
 
 import { loggers } from '@BA/utils/logger'; //这里是之前封装的loggers， 在服务端抛出异常时，我们需要进行记录。
+import { ResponseState } from '@BA/interface/rest.interface'
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -46,6 +53,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       statusCode: httpStatus,
       timestamp: new Date().toISOString(),
       path: httpAdapter.getRequestUrl(ctx.getRequest()),
+      status: ResponseState.Error,
       message
     };
 
@@ -61,6 +69,38 @@ export class HttpExceptionFilter implements ExceptionFilter {
     httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
   }
 }
+```
 
+### 正常数据结构处理
+基于nestjs中的`拦截器`进行处理, 基于nestjs中的`NestInterceptor`进行扩展。
 
+```typescript
+export enum ResponseState {
+	Success = 'success',
+	Error = 'error',
+}
+---
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { ResponseState } from '@BA/interface/rest.interface'
+
+export interface Response<T> {
+  data: T;
+}
+
+@Injectable()
+export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<Response<T>> {
+    return next.handle().pipe(
+      map((data) => {
+        return {
+          data,
+          status: ResponseState.Success
+				};
+      }),
+    );
+  }
+}
 ```

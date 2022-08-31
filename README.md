@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-09-01 00:13:46
+ * @LastEditTime: 2022-09-01 00:23:03
 -->
 
 # BEING ALIVE
@@ -16,7 +16,7 @@
 能够自由的表达。
 不用束手束脚。
 不需要看着他人的眼色行事。
-远行时那句「永远不要含着不甘而入眠」是对去他妈的糟糕生活重拳反击。
+远行时那句「永远不要含着不甘入眠」是对去他妈的糟糕生活重拳反击。
 ```
 
 > 这个项目要做什么
@@ -35,13 +35,14 @@
 
 ### 2022-08-30
 
-- [x] 基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](./record/base-nginx-mongodb-docker.config.md)
+- [x] 项目基础：基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](./record/base-nginx-mongodb-docker.config.md)
 
 ### 2022-08-31
-- [x] 处理日志，持久化存储。 [说明](./record/base-logger.md)
-- [x] 统一异常返回数据结构。 [说明](./record/base-unified-response.md)
+- [x] 项目基础：处理日志，持久化存储。 [说明](./record/base-logger.md)
+- [x] 项目基础：统一异常返回数据结构。 [说明](./record/base-unified-response.md)
 
 
 ### TODO
-- [ ] 公共类处理：统一数据返回格式处理、ip封装返回
-- [ ] 创建账号、登陆，生成 JWT 用于身份鉴权
+- [ ] 基础：统一数据返回格式处理。
+- [ ] 业务开发：创建账号、登陆，生成 JWT 用于身份鉴权。
+- [ ] 业务开发：权限管理控制。
