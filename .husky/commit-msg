@@ -1,0 +1,8 @@
+###
+ # @Date: 2022-08-31 17:12:48
+ # @LastEditTime: 2022-08-31 17:13:00
+###
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm commitlint --edit $1

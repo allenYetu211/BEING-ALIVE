@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-08-31 10:02:53
+ * @LastEditTime: 2022-08-31 22:41:47
 -->
 
 # BEING ALIVE
@@ -32,9 +32,12 @@
 
 ### 2022-08-30
 
-- [x] 基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](https://github.com/allenYetu211/BEING-ALIVE/blob/main/record/nginx-mongodb-docker.config.md)
+- [x] 基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](./base-nginx-mongodb-docker.config.md)
+
+### 2022-08-31
+- [ ] 处理日志，持久化存储。 [说明](./record/base-logger.md)
+
 
 ### TODO
-- [ ] 处理日志，持久化存储
 - [ ] 公共类处理：统一数据返回格式处理、ip封装返回
 - [ ] 创建账号、登陆，生成 JWT 用于身份鉴权

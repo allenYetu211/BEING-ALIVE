@@ -9,6 +9,6 @@ import { Module } from '@nestjs/common';
 @Module({
   imports: [],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService]
 })
 export class AuthModule {}

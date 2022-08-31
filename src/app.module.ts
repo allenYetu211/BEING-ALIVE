@@ -8,12 +8,7 @@ import { Module } from '@nestjs/common';
 /**
  * mongoose 配置
  **/
-import {
-  MONGO_URI,
-  MONGO_USERNAME,
-  MONGO_PWD,
-  MONGO_DB_NAME,
-} from '@BA/config/global';
+import { MONGO_URI, MONGO_USERNAME, MONGO_PWD, MONGO_DB_NAME } from '@BA/config/global';
 import { DatabaseModule } from '@BA/database';
 
 @Module({
@@ -22,10 +17,10 @@ import { DatabaseModule } from '@BA/database';
     DatabaseModule.forRoot(MONGO_URI, {
       user: MONGO_USERNAME,
       pass: MONGO_PWD,
-      dbName: MONGO_DB_NAME,
-    }),
+      dbName: MONGO_DB_NAME
+    })
   ],
   controllers: [],
-  providers: [],
+  providers: []
 })
 export class AppModule {}

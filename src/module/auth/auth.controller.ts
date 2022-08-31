@@ -1,17 +1,22 @@
-
 import { Controller, Post, Put } from '@nestjs/common';
-import { AuthService } from './auth.service'
+
+import { loggers } from '@BA/utils/logger';
+import { AuthService } from './auth.service';
+
+
 
 @Controller('auth')
 export class AuthController {
-  constructor (private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
 
   /**
    * 注册账号
    */
   @Post('login')
   public async LoginUserAuth() {
-    await this.authService.LoginUserAuth()
+    loggers.info('LoginUserAuth: login')
+    loggers.error({label: '[REQUEST]'},'LoginUserAuth: login')
+    await this.authService.LoginUserAuth();
   }
 
   /**
@@ -19,6 +24,6 @@ export class AuthController {
    */
   @Put('create_user')
   public async CreateUser() {
-    await this.authService.CreateUser()
+    await this.authService.CreateUser();
   }
 }
