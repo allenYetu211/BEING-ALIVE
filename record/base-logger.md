@@ -4,7 +4,7 @@
 -->
 # 日志模块
 
-在nodejs中有部署后日志记录的库，在github中start数量较多的有winston，log4js。而在2021年中log4j中爆出大量安全漏洞，而log4js为log4j的node版本。大概率应该是没有问题的，但还是在项目中选择winston作为日志存储库。
+在nodejs中有部署后日志记录的库，在github中start数量较多的有`winston`，`log4js`。而在2021年中`log4j`中爆出大量安全漏洞，而`log4js`为`log4j`的`node`版本。大概率应该是没有问题的，但还是在项目中选择`winston`作为日志存储库。
 
 ## 核心代码
 ```typescript
