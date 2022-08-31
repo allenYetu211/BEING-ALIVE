@@ -3,16 +3,16 @@
  * @LastEditTime: 2022-08-31 19:11:51
  */
 
-import * as winston from 'winston'
-import * as DailyRotateFile from 'winston-daily-rotate-file'
+import * as winston from 'winston';
+import * as DailyRotateFile from 'winston-daily-rotate-file';
 
-import { LOG_FILE_PATH } from '@BA/config/global'
+import { LOG_FILE_PATH } from '@BA/config/global';
 
 enum LoggerLevel {
   Debug = 'debug',
   Info = 'info',
   Warn = 'warn',
-  Error = 'error',
+  Error = 'error'
 }
 
 /**
@@ -20,12 +20,12 @@ enum LoggerLevel {
  */
 class CreateLoggers {
   private winstonLogger;
-  constructor () {
+  constructor() {
     this.winstonLogger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.timestamp({
-          format: 'YYYY/MM/DD HH:mm:ss',
+          format: 'YYYY/MM/DD HH:mm:ss'
         }),
         winston.format.simple(),
         winston.format.printf(({ level, label, message, timestamp }) => {
@@ -39,26 +39,26 @@ class CreateLoggers {
           zippedArchive: true,
           maxSize: '20m',
           maxFiles: '14d',
-          dirname: LOG_FILE_PATH,
+          dirname: LOG_FILE_PATH
         }),
         new winston.transports.Console({
-          level: 'info',
+          level: 'info'
         })
       ]
-    })
+    });
   }
 
   public renderLog(method: LoggerLevel) {
     return (...args: any) => {
-      const [first, ...other] = args
-      const isLabel = typeof first === 'object' && first.label
-      const message = isLabel ? other : args
+      const [first, ...other] = args;
+      const isLabel = typeof first === 'object' && first.label;
+      const message = isLabel ? other : args;
 
       const opt = {
         level: LoggerLevel[method],
         label: isLabel ? first.label : 'LOG',
-        message: this.renderMessage(message).join(' '),
-      }
+        message: this.renderMessage(message).join(' ')
+      };
 
       return this.winstonLogger[method](opt);
     };
@@ -69,11 +69,11 @@ class CreateLoggers {
   }
 }
 
-const createLogger = new CreateLoggers()
+const createLogger = new CreateLoggers();
 
 export const loggers = {
   debug: createLogger.renderLog(LoggerLevel.Debug),
   error: createLogger.renderLog(LoggerLevel.Error),
   info: createLogger.renderLog(LoggerLevel.Info),
-  warn: createLogger.renderLog(LoggerLevel.Warn),
-}
+  warn: createLogger.renderLog(LoggerLevel.Warn)
+};

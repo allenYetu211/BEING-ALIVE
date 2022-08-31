@@ -3,8 +3,6 @@ import { Controller, Post, Put } from '@nestjs/common';
 import { loggers } from '@BA/utils/logger';
 import { AuthService } from './auth.service';
 
-
-
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -14,8 +12,8 @@ export class AuthController {
    */
   @Post('login')
   public async LoginUserAuth() {
-    loggers.info('LoginUserAuth: login')
-    loggers.error({label: '[REQUEST]'},'LoginUserAuth: login')
+    loggers.info('LoginUserAuth: login');
+    loggers.error({ label: '[REQUEST]' }, 'LoginUserAuth: login');
     await this.authService.LoginUserAuth();
   }
 

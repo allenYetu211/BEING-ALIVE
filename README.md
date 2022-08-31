@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-08-31 22:41:47
+ * @LastEditTime: 2022-08-31 22:43:18
 -->
 
 # BEING ALIVE
@@ -32,10 +32,10 @@
 
 ### 2022-08-30
 
-- [x] 基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](./base-nginx-mongodb-docker.config.md)
+- [x] 基于 docker 环境搭建，集成 mongodb、nginx。[搭建说明](./record/base-nginx-mongodb-docker.config.md)
 
 ### 2022-08-31
-- [ ] 处理日志，持久化存储。 [说明](./record/base-logger.md)
+- [x] 处理日志，持久化存储。 [说明](./record/base-logger.md)
 
 
 ### TODO
