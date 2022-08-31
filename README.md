@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-08-31 23:58:27
+ * @LastEditTime: 2022-09-01 00:13:46
 -->
 
 # BEING ALIVE
@@ -27,6 +27,9 @@
 ```
 
 ---
+
+# 架构
+[说明](./record/framework.md)
 
 # 功能
 
