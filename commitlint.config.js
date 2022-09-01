@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-08-30 00:41:15
+ * @LastEditTime: 2022-09-01 10:56:41
+ */
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
