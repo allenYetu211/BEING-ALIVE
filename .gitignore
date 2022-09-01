@@ -37,3 +37,8 @@ db
 !.vscode/launch.json
 !.vscode/extensions.json
 node_modules
+
+
+# temporary ignorefile
+refresh-token.strategy.ts
+jwt-refresh.guard.ts

@@ -1,9 +1,15 @@
-import { AuthModule } from './module/auth/auth.module';
 /*
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-08-30 17:32:50
+ * @LastEditTime: 2022-09-01 19:07:24
  */
 import { Module } from '@nestjs/common';
+
+/**
+ * 功能模块
+ */
+import { UserModule } from './module/user/user.module';
+import { AuthModule } from './module/auth/auth.module';
+import { TagsModule } from './module/tags/tags.module';
 
 /**
  * mongoose 配置
@@ -13,12 +19,14 @@ import { DatabaseModule } from '@BA/database';
 
 @Module({
   imports: [
-    AuthModule,
+    TagsModule,
     DatabaseModule.forRoot(MONGO_URI, {
       user: MONGO_USERNAME,
       pass: MONGO_PWD,
       dbName: MONGO_DB_NAME
-    })
+    }),
+    UserModule,
+    AuthModule
   ],
   controllers: [],
   providers: []

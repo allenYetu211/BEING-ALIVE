@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-09-01 09:21:20
+ * @LastEditTime: 2022-09-02 01:21:47
 -->
 
 # BEING ALIVE
@@ -34,20 +34,19 @@
 
 # 功能
 
-### 2022-08-30
+### 2022/08/30
 
 - [x] 项目基础：基于 `docker-compose` 环境搭建进行容器编排，集成 mongodb、nginx。[搭建说明](./record/base-nginx-mongodb-docker.config.md)
 
-### 2022-08-31
+### 2022/08/31
 
 - [x] 项目基础：基于`winston`处理日志，持久化存储。 [说明](./record/base-logger.md)
 - [x] 项目基础：基于`nestjs` `过滤器`统一异常返回数据结构。 [说明](./record/base-unified-response.md#异常数据结构处理)
 
-### 2022-09-01
+### 2022/09/01
 
 - [x] 项目基础：基于`nestjs` `拦截器`的统一数据返回格式处理。[说明](./record/base-unified-response.md#正常数据结构处理)
+- [x] 业务开发：创建账号、登陆，生成 JWT 用于身份鉴权。[说明](./record/base-jwt.md)
 
 ### TODO
-
-- [ ] 业务开发：创建账号、登陆，生成 JWT 用于身份鉴权。
 - [ ] 业务开发：权限管理控制。

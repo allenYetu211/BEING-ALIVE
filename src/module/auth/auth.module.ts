@@ -1,14 +1,17 @@
-/*
- * @Date: 2022-08-30 23:35:53
- * @LastEditTime: 2022-08-30 23:36:29
- */
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
 import { Module } from '@nestjs/common';
+import { PassportModule } from '@nestjs/passport';
+import { JwtModule } from '@nestjs/jwt';
+
+import { LocalStrategy } from '@BA/strategy/local.strategy';
+import { AccessTokenStrategy } from '@BA/strategy/access-token.strategy';
+import { UserModule } from '@BA/module/user/user.module';
+
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
 
 @Module({
-  imports: [],
+  imports: [UserModule, PassportModule, JwtModule.register({})],
   controllers: [AuthController],
-  providers: [AuthService]
+  providers: [AuthService, LocalStrategy, AccessTokenStrategy]
 })
 export class AuthModule {}

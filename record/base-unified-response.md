@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-31 23:48:27
- * @LastEditTime: 2022-09-01 01:19:59
+ * @LastEditTime: 2022-09-01 18:45:27
 -->
 
 # 统一返回格式
@@ -107,4 +107,7 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
     );
   }
 }
+---
+// 全局注册，或者在制定接口注册
+app.useGlobalInterceptors(new TransformInterceptor())
 ```
