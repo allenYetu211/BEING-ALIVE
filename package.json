@@ -22,12 +22,11 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint-staged": "lint-staged",
     "prettier": "prettier",
-    "git": "git add . && git cz"
+    "git": "git add . && git cz && git push"
   },
   "lint-staged": {
     "src/**/*.{ts,js,json}": [
-      "prettier --write .",
-      "git add ."
+      "prettier --write ."
     ]
   },
   "config": {
