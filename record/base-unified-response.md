@@ -2,11 +2,14 @@
  * @Date: 2022-08-31 23:48:27
  * @LastEditTime: 2022-09-01 01:19:59
 -->
+
 # 统一返回格式
+
 - 统一数据结构，方便前端在拦截器中统一处理异常
 
 ### 异常数据结构处理
-基于nestjs中的`异常过滤器`提供的 `ExceptionFilter` 进行扩展， `ExceptionFilter` 是基于 `HttpException` 进行封装的内置类。
+
+基于 nestjs 中的`异常过滤器`提供的 `ExceptionFilter` 进行扩展， `ExceptionFilter` 是基于 `HttpException` 进行封装的内置类。
 
 ```typescript
 // file: ~/src/filter/http-exception.filter.ts
@@ -72,7 +75,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
 ```
 
 ### 正常数据结构处理
-基于nestjs中的`拦截器`进行处理, 基于nestjs中的`NestInterceptor`进行扩展。
+
+基于 nestjs 中的`拦截器`进行处理, 基于 nestjs 中的`NestInterceptor`进行扩展。
 
 ```typescript
 export enum ResponseState {

@@ -2,11 +2,13 @@
  * @Date: 2022-08-31 22:30:58
  * @LastEditTime: 2022-08-31 23:57:10
 -->
+
 # 日志模块
 
-在nodejs中有部署后日志记录的库，在github中start数量较多的有`winston`，`log4js`。而在2021年中`log4j`中爆出大量安全漏洞，而`log4js`为`log4j`的`node`版本。大概率应该是没有问题的，但还是在项目中选择`winston`作为日志存储库。
+在 nodejs 中有部署后日志记录的库，在 github 中 start 数量较多的有`winston`，`log4js`。而在 2021 年中`log4j`中爆出大量安全漏洞，而`log4js`为`log4j`的`node`版本。大概率应该是没有问题的，但还是在项目中选择`winston`作为日志存储库。
 
 ## 核心代码
+
 ```typescript
 // 在打包后的dist目录下会记录logs文件，在部署环境中就是跟目录了。
 export const LOG_FILE_PATH = path.resolve(__dirname, '../logs');
@@ -93,9 +95,10 @@ export const loggers = {
 ```
 
 ## 使用
-```typescript
-    import { loggers } from '@BA/utils/logger'
 
-    loggers.info('LoginUserAuth: login')
-    loggers.error({label: '[REQUEST]'},'LoginUserAuth: login')
+```typescript
+import { loggers } from '@BA/utils/logger';
+
+loggers.info('LoginUserAuth: login');
+loggers.error({ label: '[REQUEST]' }, 'LoginUserAuth: login');
 ```

@@ -106,10 +106,7 @@ import { getModelToken } from './database.transform';
 @Global()
 @Module({})
 export class DatabaseModule {
-  static forRoot(
-    uri: string,
-    options: DatabaseConnectionOptions = {},
-  ): DynamicModule {
+  static forRoot(uri: string, options: DatabaseConnectionOptions = {}): DynamicModule {
     const connectionProvider = {
       provide: DB_CONNECTION_TOKEN,
       useFactory: async () => {
@@ -129,13 +126,13 @@ export class DatabaseModule {
         });
 
         return await mongoose.connect(uri, { ...options });
-      },
+      }
     };
 
     return {
       module: DatabaseModule,
       providers: [connectionProvider],
-      exports: [connectionProvider],
+      exports: [connectionProvider]
     };
   }
 
@@ -145,14 +142,14 @@ export class DatabaseModule {
         provide: getModelToken(typegooseClass.name),
         useFactory: (connection: mongoose.Connection) =>
           getModelForClass(typegooseClass, { existingConnection: connection }),
-        inject: [DB_CONNECTION_TOKEN],
+        inject: [DB_CONNECTION_TOKEN]
       };
     });
 
     return {
       module: DatabaseModule,
       providers,
-      exports: providers,
+      exports: providers
     };
   }
 }
