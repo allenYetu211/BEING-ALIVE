@@ -6,7 +6,7 @@ module.exports = {
   // type 类型（定义之后，可通过上下键选择）
   types: [
     { value: 'feat', name: '[feat]:新增功能' },
-    { value: 'fix',  name: '[fix]:修复 bug' },
+    { value: 'fix', name: '[fix]:修复 bug' },
     { value: 'docs', name: '[docs]:文档注释' },
     {
       value: 'refactor',
@@ -14,7 +14,10 @@ module.exports = {
     },
     { value: 'test', name: '[test]:增加测试' },
     { value: 'perf', name: '[perf]:性能优化' },
-    { value: 'chore', name: '[chore]:其他修改, 格式化,增加测试,回退,比如构建流程, 依赖管理、版本好修正.' }
+    {
+      value: 'chore',
+      name: '[chore]:其他修改, 格式化,增加测试,回退,比如构建流程, 依赖管理、版本好修正.'
+    }
   ],
 
   // scope 类型（定义之后，可通过上下键选择）
@@ -79,4 +82,4 @@ module.exports = {
   breaklineChar: '|' // 换行符，支持 body 和 footer
   // footerPrefix : 'ISSUES CLOSED:'
   // askForBreakingChangeFirst : true,
-}
+};
