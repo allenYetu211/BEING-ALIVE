@@ -39,6 +39,8 @@ db
 node_modules
 
 
+documentation*
+
 # temporary ignorefile
 refresh-token.strategy.ts
 jwt-refresh.guard.ts

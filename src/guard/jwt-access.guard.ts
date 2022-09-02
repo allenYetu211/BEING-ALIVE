@@ -1,6 +1,5 @@
 /*
  * @Date: 2022-09-01 18:48:17
- * @LastEditTime: 2022-09-02 00:55:43
  */
 import { Injectable } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
