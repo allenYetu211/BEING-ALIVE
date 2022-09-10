@@ -15,7 +15,7 @@ export class UserController {
    * 创建用户
    */
   @Post('create_user')
-  public async createUser(@Body() user: User) {
+  public async createUser(@Body() user: Omit<User, 'role'>) {
     return await this.userService.createUser(user);
   }
 }

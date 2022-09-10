@@ -6,6 +6,7 @@
 import { prop } from '@typegoose/typegoose';
 import { IsString, IsNotEmpty } from 'class-validator';
 import { Document } from 'mongoose';
+import { Role } from '@BA/common/enums';
 
 export type UserDocument = User & Document;
 
@@ -21,6 +22,9 @@ export class User {
   @IsNotEmpty()
   @prop({ required: true })
   nickname: string;
+
+  @prop({ default: Role.MEMBER })
+  role: string;
 
   @prop()
   refreshToken: string;

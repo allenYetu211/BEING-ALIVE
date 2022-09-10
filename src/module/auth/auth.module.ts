@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-09-01 16:11:46
+ * @LastEditTime: 2022-09-10 13:32:26
+ */
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';

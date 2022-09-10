@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-08-30 23:36:03
- * @LastEditTime: 2022-09-02 00:02:01
+ * @LastEditTime: 2022-09-10 12:56:46
  */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 
@@ -14,7 +14,7 @@ export class UserService {
   constructor(@InjectModel(User) private readonly userModel: MongooseModel<User>) {}
   public async login() {}
 
-  public async createUser(createInfo: User) {
+  public async createUser(createInfo: Omit<User, 'role'>): Promise<string> {
     const { username, password, nickname } = createInfo;
     const result = await this.findOne(username);
     if (!result) {
@@ -30,7 +30,16 @@ export class UserService {
   }
 
   public async findOne(username: string) {
-    return await this.userModel.findOne({ username });
+    return await this.userModel.findOne(
+      { username },
+      {
+        _v: 0
+      }
+    );
+  }
+
+  public async findById(_id: string) {
+    return await this.userModel.findOne({ _id });
   }
 
   public async update(id: string, user: Partial<User>) {

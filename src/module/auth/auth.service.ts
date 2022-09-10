@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-01 15:53:42
- * @LastEditTime: 2022-09-02 00:42:50
+ * @LastEditTime: 2022-09-10 13:48:10
  */
 
 import { Injectable } from '@nestjs/common';
@@ -19,11 +19,16 @@ export class AuthService {
     if (user && user.password === decodeMD5(pass)) {
       return {
         _id: user._id,
-        username: user.username,
-        nickname: user.nickname
+        // username: user.username,
+        // nickname: user.nickname,
+        role: user.role
       };
     }
     return null;
+  }
+
+  async findById(_id: string) {
+    return await this.usesService.findById(_id);
   }
 
   async signIn(user: UserDocument) {
@@ -35,7 +40,8 @@ export class AuthService {
   }
 
   async getTokens(user: UserDocument) {
-    const payload = { _id: user._id, username: user.username, nickname: user.nickname };
+    // const payload = { _id: user._id, username: user.username, nickname: user.nickname };
+    const payload = { ...user };
 
     const accessToken = await this.jwtService.signAsync(payload, {
       secret: JWT.JWT_ACCESS_SECRET,
