@@ -2,7 +2,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nes
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { ResponseState } from '@BA/interface/rest.interface';
+import { ResponseState } from '@BA/common/interface/rest.interface';
 
 export interface Response<T> {
   data: T;

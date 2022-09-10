@@ -7,8 +7,8 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserDocument } from '@BA/module/user/user.model';
 import { UserService } from '@BA/module/user/user.service';
-import { decodeMD5 } from '@BA/transform/decode.transform';
-import { JWT } from '@BA/config';
+import { decodeMD5 } from '@BA/common/transform/decode.transform';
+import { JWT } from '@BA/common/config';
 
 @Injectable()
 export class AuthService {

@@ -4,10 +4,10 @@
  */
 import { NestFactory, HttpAdapterHost } from '@nestjs/core';
 
-import { ValidationPipe } from '@BA/pipe/validation.pipe';
-import { HttpExceptionFilter } from '@BA/filter/http-exception.filter';
-import { PORT } from '@BA/config/global';
-import { TransformInterceptor } from '@BA/interceptor/transform.interceptor';
+import { ValidationPipe } from '@BA/common/pipe/validation.pipe';
+import { HttpExceptionFilter } from '@BA/common/filter/http-exception.filter';
+import { PORT } from '@BA/common/config/global';
+import { TransformInterceptor } from '@BA/common/interceptor/transform.interceptor';
 
 import { AppModule } from './app.module';
 
