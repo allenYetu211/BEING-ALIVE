@@ -2,8 +2,8 @@ import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from
 import { HttpAdapterHost } from '@nestjs/core';
 import * as _ from 'lodash';
 
-import { loggers } from '@BA/common/utils/logger';
-import { ResponseState } from '@BA/common/interface/rest.interface';
+import { loggers } from '@/common/utils/logger';
+import { ResponseState } from '@/common/interface/rest.interface';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {

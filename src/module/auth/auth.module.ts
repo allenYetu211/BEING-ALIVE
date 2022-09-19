@@ -6,9 +6,9 @@ import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 
-import { LocalStrategy } from '@BA/common/strategy/local.strategy';
-import { AccessTokenStrategy } from '@BA/common/strategy/access-token.strategy';
-import { UserModule } from '@BA/module/user/user.module';
+import { LocalStrategy } from '@/common/strategy/local.strategy';
+import { AccessTokenStrategy } from '@/common/strategy/access-token.strategy';
+import { UserModule } from '@/module/user/user.module';
 
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';

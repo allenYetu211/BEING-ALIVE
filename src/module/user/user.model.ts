@@ -6,7 +6,7 @@
 import { prop } from '@typegoose/typegoose';
 import { IsString, IsNotEmpty } from 'class-validator';
 import { Document } from 'mongoose';
-import { Role } from '@BA/common/enums/enums';
+import { Role } from '@/common/enums/enums';
 
 export type UserDocument = User & Document;
 

@@ -17,7 +17,7 @@ export const LOG_FILE_PATH = path.resolve(__dirname, '../logs');
 import * as winston from 'winston'
 import * as DailyRotateFile from 'winston-daily-rotate-file'
 
-import { LOG_FILE_PATH } from '@BA/config/global'
+import { LOG_FILE_PATH } from '@/config/global'
 
 enum LoggerLevel {
   Debug = 'debug',
@@ -97,7 +97,7 @@ export const loggers = {
 ## 使用
 
 ```typescript
-import { loggers } from '@BA/utils/logger';
+import { loggers } from '@/utils/logger';
 
 loggers.info('LoginUserAuth: login');
 loggers.error({ label: '[REQUEST]' }, 'LoginUserAuth: login');

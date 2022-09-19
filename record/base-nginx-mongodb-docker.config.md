@@ -100,7 +100,7 @@ server {
 import { Module, Global, DynamicModule } from '@nestjs/common';
 import * as mongoose from 'mongoose';
 import { getModelForClass } from '@typegoose/typegoose';
-import { DB_CONNECTION_TOKEN } from '@BA/config/global';
+import { DB_CONNECTION_TOKEN } from '@/config/global';
 import { DatabaseConnectionOptions, DatabaseClass } from './database.interface';
 import { getModelToken } from './database.transform';
 @Global()

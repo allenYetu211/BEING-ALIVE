@@ -4,7 +4,7 @@
  */
 import { Module } from '@nestjs/common';
 
-import { DatabaseModule } from '@BA/database';
+import { DatabaseModule } from '@/database';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 import { User } from './user.model';

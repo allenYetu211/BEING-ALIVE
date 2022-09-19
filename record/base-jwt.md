@@ -19,9 +19,9 @@ import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 
-import { LocalStrategy } from '@BA/strategy/local.strategy';
-import { AccessTokenStrategy } from '@BA/strategy/access-token.strategy';
-import { UserModule } from '@BA/module/user/user.module';
+import { LocalStrategy } from '@/strategy/local.strategy';
+import { AccessTokenStrategy } from '@/strategy/access-token.strategy';
+import { UserModule } from '@/module/user/user.module';
 
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
@@ -54,10 +54,10 @@ export class AuthController {
 // file: ~/src/module/auth.service
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserDocument } from '@BA/module/user/user.model';
-import { UserService } from '@BA/module/user/user.service';
-import { decodeMD5 } from '@BA/transform/decode.transform';
-import { JWT } from '@BA/config';
+import { UserDocument } from '@/module/user/user.model';
+import { UserService } from '@/module/user/user.service';
+import { decodeMD5 } from '@/transform/decode.transform';
+import { JWT } from '@/config';
 
 export class AuthService {
   async signIn(user: UserDocument) {
@@ -87,7 +87,7 @@ export class AuthService {
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
-import { JWT } from '@BA/config';
+import { JWT } from '@/config';
 
 @Injectable()
 export class AccessTokenStrategy extends PassportStrategy(Strategy) {
@@ -132,7 +132,7 @@ export class JwtAccessAuthGuard extends AuthGuard('jwt') {
 
 ```typescript
 import { Controller, Get, UseGuards, Request } from '@nestjs/common';
-import { JwtAccessAuthGuard } from '@BA/guard/jwt-access.guard';
+import { JwtAccessAuthGuard } from '@/guard/jwt-access.guard';
 
 @Controller()
 export class TagsController {

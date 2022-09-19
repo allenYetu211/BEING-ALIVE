@@ -6,7 +6,7 @@
 import * as winston from 'winston';
 import * as DailyRotateFile from 'winston-daily-rotate-file';
 
-import { LOG_FILE_PATH } from '@BA/common/config/global';
+import { LOG_FILE_PATH } from '@/common/config/global';
 
 enum LoggerLevel {
   Debug = 'debug',

@@ -15,13 +15,13 @@ import { TagsModule } from './module/tags/tags.module';
 /**
  * mongoose 配置
  **/
-import { MONGO_URI, MONGO_USERNAME, MONGO_PWD, MONGO_DB_NAME } from '@BA/common/config/global';
-import { DatabaseModule } from '@BA/database';
+import { MONGO_URI, MONGO_USERNAME, MONGO_PWD, MONGO_DB_NAME } from '@/common/config/global';
+import { DatabaseModule } from '@/database';
 
 /**
  * 全局守卫
  */
-import { RolesGuard } from '@BA/common/guard/roles.guard';
+import { RolesGuard } from '@/common/guard/roles.guard';
 
 @Module({
   imports: [

@@ -4,9 +4,9 @@
  */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 
-import { ResponseState } from '@BA/common/interface/rest.interface';
-import { decodeMD5 } from '@BA/common/transform/decode.transform';
-import { InjectModel, MongooseModel } from '@BA/database';
+import { ResponseState } from '@/common/interface/rest.interface';
+import { decodeMD5 } from '@/common/transform/decode.transform';
+import { InjectModel, MongooseModel } from '@/database';
 import { User } from './user.model';
 
 @Injectable()

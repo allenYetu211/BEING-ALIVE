@@ -7,9 +7,9 @@ https://docs.nestjs.com/controllers#controllers
 */
 
 import { Controller, Get, UseGuards, Request } from '@nestjs/common';
-import { JwtAccessAuthGuard } from '@BA/common/guard/jwt-access.guard';
-import { Roles } from '@BA/common/decorator/role. decorator';
-import { Role } from '@BA/common/enums/enums';
+import { JwtAccessAuthGuard } from '@/common/guard/jwt-access.guard';
+import { Roles } from '@/common/decorator/role. decorator';
+import { Role } from '@/common/enums/enums';
 
 @Controller()
 export class TagsController {

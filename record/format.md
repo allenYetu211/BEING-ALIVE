@@ -34,7 +34,7 @@ import { getModelForClass } from '@typegoose/typegoose'; // 三方依赖库
 
 // 中间存在空格
 // 项目内代码
-import { DB_CONNECTION_TOKEN } from '@BA/config/global'; // 项目内非同目录引用
+import { DB_CONNECTION_TOKEN } from '@/config/global'; // 项目内非同目录引用
 import { DatabaseConnectionOptions, DatabaseClass } from './database.interface'; // 项目内同目录引用
 import { getModelToken } from './database.transform'; // 项目内同目录引用
 ```

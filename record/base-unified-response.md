@@ -29,8 +29,8 @@ import {
 import { HttpAdapterHost } from '@nestjs/core';
 import * as _ from 'lodash'
 
-import { loggers } from '@BA/utils/logger'; //这里是之前封装的loggers， 在服务端抛出异常时，我们需要进行记录。
-import { ResponseState } from '@BA/interface/rest.interface'
+import { loggers } from '@/utils/logger'; //这里是之前封装的loggers， 在服务端抛出异常时，我们需要进行记录。
+import { ResponseState } from '@/interface/rest.interface'
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -88,7 +88,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nes
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { ResponseState } from '@BA/interface/rest.interface'
+import { ResponseState } from '@/interface/rest.interface'
 
 export interface Response<T> {
   data: T;
