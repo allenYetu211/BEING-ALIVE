@@ -1,6 +1,6 @@
 <!--
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-09-04 20:06:28
+ * @LastEditTime: 2022-09-20 01:10:05
 -->
 
 # BEING ALIVE
@@ -48,7 +48,10 @@
 - [x] 项目基础：基于`nestjs` `拦截器`的统一数据返回格式处理。[说明](./record/base-unified-response.md#正常数据结构处理)
 - [x] 业务开发：创建账号、登陆，生成 JWT 用于身份鉴权。[说明](./record/base-jwt.md)
 
-### TODO
+### 2022/09/19
 
-- [ ] 业务开发：权限管理控制。
-  - 主账号，访问账号
+- [x] 项目基础：权限管理控制 RBAC 0 。 [说明](./record/base-rbac.md)
+
+### 2022/09/20
+
+- [x] 业务开发：tag module，增删改查

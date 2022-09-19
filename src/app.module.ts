@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-09-10 11:49:59
+ * @LastEditTime: 2022-09-20 01:04:23
  */
 import { APP_GUARD } from '@nestjs/core';
 import { Module } from '@nestjs/common';
@@ -10,7 +10,7 @@ import { Module } from '@nestjs/common';
  */
 import { UserModule } from './module/user/user.module';
 import { AuthModule } from './module/auth/auth.module';
-import { TagsModule } from './module/tags/tags.module';
+import { TagModule } from './module/tags/tag.module';
 
 /**
  * mongoose 配置
@@ -25,14 +25,14 @@ import { RolesGuard } from '@/common/guard/roles.guard';
 
 @Module({
   imports: [
-    TagsModule,
+    TagModule,
+    UserModule,
+    AuthModule,
     DatabaseModule.forRoot(MONGO_URI, {
       user: MONGO_USERNAME,
       pass: MONGO_PWD,
       dbName: MONGO_DB_NAME
-    }),
-    UserModule,
-    AuthModule
+    })
   ],
   controllers: [],
   providers: [
