@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-01 14:49:42
- * @LastEditTime: 2022-09-01 15:47:53
+ * @LastEditTime: 2022-09-19 16:13:20
  */
 
 import { prop } from '@typegoose/typegoose';
@@ -24,7 +24,7 @@ export class User {
   nickname: string;
 
   @prop({ default: Role.MEMBER })
-  role: string;
+  role: number;
 
   @prop()
   refreshToken: string;

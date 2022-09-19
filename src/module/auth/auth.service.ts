@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-01 15:53:42
- * @LastEditTime: 2022-09-10 13:48:10
+ * @LastEditTime: 2022-09-19 17:18:55
  */
 
 import { Injectable } from '@nestjs/common';
@@ -18,10 +18,7 @@ export class AuthService {
     const user = await this.usesService.findOne(username);
     if (user && user.password === decodeMD5(pass)) {
       return {
-        _id: user._id,
-        // username: user.username,
-        // nickname: user.nickname,
-        role: user.role
+        _id: user._id
       };
     }
     return null;
