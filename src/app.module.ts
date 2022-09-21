@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-08-28 14:44:57
- * @LastEditTime: 2022-09-20 01:04:23
+ * @LastEditTime: 2022-09-21 00:47:11
  */
 import { APP_GUARD } from '@nestjs/core';
 import { Module } from '@nestjs/common';
@@ -11,6 +11,7 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './module/user/user.module';
 import { AuthModule } from './module/auth/auth.module';
 import { TagModule } from './module/tags/tag.module';
+import { ArticleModule } from './module/article/article.module';
 
 /**
  * mongoose 配置
@@ -25,6 +26,7 @@ import { RolesGuard } from '@/common/guard/roles.guard';
 
 @Module({
   imports: [
+    ArticleModule,
     TagModule,
     UserModule,
     AuthModule,
