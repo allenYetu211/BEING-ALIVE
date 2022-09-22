@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-01 18:50:11
- * @LastEditTime: 2022-09-02 00:46:33
+ * @LastEditTime: 2022-09-22 23:40:48
  */
 
 export const JWT = {
@@ -9,3 +9,5 @@ export const JWT = {
   ACCESS_EXPIRES_IN: '15m',
   REFRESH_EXPIRES_IN: '1d'
 };
+
+export const ArticleLimit = 20;

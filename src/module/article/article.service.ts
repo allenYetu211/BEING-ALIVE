@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-21 00:46:50
- * @LastEditTime: 2022-09-22 00:17:32
+ * @LastEditTime: 2022-09-23 00:54:37
  */
 /*
 https://docs.nestjs.com/providers#services
@@ -11,6 +11,7 @@ import { InjectModel, MongooseModel } from '@/database';
 import { Article } from './article.model';
 import { ArticleDTO } from './article.dto';
 import { MongooseID, MongooseDoc } from '@/common/interface/mongoose.interface';
+import { ArticleLimit } from '@/common/config/system';
 
 @Injectable()
 export class ArticleService {
@@ -22,6 +23,10 @@ export class ArticleService {
 
   public async findAllArticle(): Promise<MongooseDoc<Article>[]> {
     return await this.articleModel.find({});
+  }
+
+  public async findPageArticle(page: number): Promise<MongooseDoc<Article>[]> {
+    return await this.articleModel.find({}).skip(page).limit(ArticleLimit);
   }
 
   public async findArticle(id: MongooseID): Promise<MongooseDoc<Article>> {

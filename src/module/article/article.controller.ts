@@ -1,15 +1,15 @@
 /*
  * @Date: 2022-09-21 00:46:56
- * @LastEditTime: 2022-09-22 00:22:39
+ * @LastEditTime: 2022-09-23 00:55:00
  */
 /*
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { MongooseID, MongooseDoc } from '@/common/interface/mongoose.interface';
 import { ArticleService } from './article.service';
-import { ArticleDTO } from './article.dto';
+import { ArticleDTO, ArticlePageDTO } from './article.dto';
 import { Article } from './article.model';
 
 @Controller('article')
@@ -26,14 +26,24 @@ export class ArticleController {
     return await this.articleService.findAllArticle();
   }
 
+  @Get()
+  public async findPageArticle(@Query() query: ArticlePageDTO): Promise<MongooseDoc<Article>[]> {
+    const { page } = query;
+    console.log('page', page);
+    return await this.articleService.findPageArticle(page);
+  }
+
   @Get(':id')
   public async findArticle(@Param() { id }: { id: MongooseID }): Promise<MongooseDoc<Article>> {
     return await this.articleService.findArticle(id);
   }
 
   @Put(':id')
-  public async updateArticle(@Param() { id }: { id: MongooseID }): Promise<MongooseDoc<Article>> {
-    return await this.articleService.findArticle(id);
+  public async updateArticle(
+    @Param() { id }: { id: MongooseID },
+    @Body() article: ArticleDTO
+  ): Promise<MongooseDoc<Article>> {
+    return await this.articleService.updateArticle(id, article);
   }
 
   @Delete(':id')
