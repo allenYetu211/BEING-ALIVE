@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-01 15:23:37
- * @LastEditTime: 2022-09-23 01:07:08
+ * @LastEditTime: 2022-09-23 15:59:01
  */
 
 import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from '@nestjs/common';
@@ -10,11 +10,13 @@ import { validate } from 'class-validator';
 @Injectable()
 export class ValidationPipe implements PipeTransform {
   async transform(value: any, { metatype }: ArgumentMetadata) {
-    if (!metatype || !this.toValidate(metatype)) {
+    if (this.isUnverifiableMetatype(metatype)) {
       return value;
     }
+
     const object = plainToInstance(metatype, value);
     const errors = await validate(object);
+
     if (errors.length > 0) {
       const errorCollection: string[] = [];
       errors.forEach((error) => {
@@ -23,11 +25,12 @@ export class ValidationPipe implements PipeTransform {
       const errorMessage = errorCollection.join(' | ');
       throw new BadRequestException(errorMessage);
     }
-    return value;
+
+    return object;
   }
 
-  private toValidate(metatype: Function): boolean {
+  private isUnverifiableMetatype(metatype: Function): boolean {
     const types: Function[] = [String, Boolean, Number, Array, Object];
-    return !types.includes(metatype);
+    return !metatype || types.includes(metatype as any);
   }
 }

@@ -1,12 +1,22 @@
 /*
  * @Date: 2022-09-21 00:46:56
- * @LastEditTime: 2022-09-23 00:55:00
+ * @LastEditTime: 2022-09-23 16:01:16
  */
 /*
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+  ValidationPipe
+} from '@nestjs/common';
 import { MongooseID, MongooseDoc } from '@/common/interface/mongoose.interface';
 import { ArticleService } from './article.service';
 import { ArticleDTO, ArticlePageDTO } from './article.dto';
@@ -29,7 +39,6 @@ export class ArticleController {
   @Get()
   public async findPageArticle(@Query() query: ArticlePageDTO): Promise<MongooseDoc<Article>[]> {
     const { page } = query;
-    console.log('page', page);
     return await this.articleService.findPageArticle(page);
   }
 
