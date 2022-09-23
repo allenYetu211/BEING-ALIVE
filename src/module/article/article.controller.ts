@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-21 00:46:56
- * @LastEditTime: 2022-09-23 16:01:16
+ * @LastEditTime: 2022-09-23 16:37:08
  */
 /*
 https://docs.nestjs.com/controllers#controllers
@@ -38,7 +38,7 @@ export class ArticleController {
 
   @Get()
   public async findPageArticle(@Query() query: ArticlePageDTO): Promise<MongooseDoc<Article>[]> {
-    const { page } = query;
+    const { page = 1 } = query;
     return await this.articleService.findPageArticle(page);
   }
 

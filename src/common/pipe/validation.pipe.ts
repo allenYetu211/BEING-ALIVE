@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-01 15:23:37
- * @LastEditTime: 2022-09-23 15:59:01
+ * @LastEditTime: 2022-09-23 16:33:16
  */
 
 import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from '@nestjs/common';
@@ -18,12 +18,11 @@ export class ValidationPipe implements PipeTransform {
     const errors = await validate(object);
 
     if (errors.length > 0) {
-      const errorCollection: string[] = [];
+      const message: string[] = [];
       errors.forEach((error) => {
-        errorCollection.push(Object.values(error.constraints!)[0]);
+        message.push(...Object.values(error.constraints));
       });
-      const errorMessage = errorCollection.join(' | ');
-      throw new BadRequestException(errorMessage);
+      throw new BadRequestException(message.join(' , '));
     }
 
     return object;

@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-21 00:46:50
- * @LastEditTime: 2022-09-23 00:54:37
+ * @LastEditTime: 2022-09-23 16:55:34
  */
 /*
 https://docs.nestjs.com/providers#services
@@ -26,7 +26,17 @@ export class ArticleService {
   }
 
   public async findPageArticle(page: number): Promise<MongooseDoc<Article>[]> {
-    return await this.articleModel.find({}).skip(page).limit(ArticleLimit);
+    return await this.articleModel
+      .find(
+        {},
+        {},
+        {
+          skip: page,
+          limit: ArticleLimit,
+          sort: { _id: 1 }
+        }
+      )
+      .exec();
   }
 
   public async findArticle(id: MongooseID): Promise<MongooseDoc<Article>> {
