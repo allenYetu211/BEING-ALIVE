@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-21 00:48:29
- * @LastEditTime: 2022-09-21 19:45:34
+ * @LastEditTime: 2022-10-23 19:52:08
  */
 
 import { Prop, Ref } from '@typegoose/typegoose';
@@ -14,12 +14,12 @@ import {
 } from 'class-validator';
 // import { MongooseID } from '@/common/interface/mongoose.interface';
 import { Tag } from '@/module/tags/tag.model';
-import type { Descendant } from 'slate';
+// import type { Descendant } from 'slate';
 
 export class Article {
-  @IsArray()
+  @IsString()
   @Prop()
-  container: Descendant[];
+  container: string;
 
   @IsString()
   @Prop()

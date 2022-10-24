@@ -17,6 +17,7 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter(app.get(HttpAdapterHost)));
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
+  app.enableCors();
 
   await app.listen(PORT);
 

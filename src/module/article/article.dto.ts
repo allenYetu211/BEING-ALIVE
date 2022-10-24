@@ -1,11 +1,15 @@
-import type { Descendant } from 'slate';
+/*
+ * @Date: 2022-09-21 17:32:32
+ * @LastEditTime: 2022-10-23 19:50:28
+ */
+// import type { Descendant } from 'slate';
 import { IsArray, IsString, IsOptional, Min, IsNotEmpty, IsInt } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { unknownToNumber } from '@/common/transform/value.transform';
 
 export class ArticleDTO {
-  @IsArray()
-  container: Descendant[];
+  @IsString()
+  container: string;
 
   @IsString()
   title: string;
